@@ -1,0 +1,125 @@
+html,
+body{
+  height: 100%;
+  background-color: brown;
+  font-size: 20px;
+  /* line-height: 20px; */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.calendar-btn{
+  margin: 20px;
+  background-color: #322222;
+  color: #fff;
+  padding: 10px;
+  width: 150px;
+  border-radius: 5px;
+  /* transition: all .4s; */
+}
+.calendar-btn:hover{
+  width: 350px;
+  transition: all .4s;
+}
+/* --------------- */
+.calendar-popap{
+  /* display: none; */
+  background-color: #000;
+  color: #fff;
+  overflow-y: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0; 
+}
+/* -------------------------- */
+.calendar__month-wrapper{
+  display: grid;
+  grid-template-columns:  repeat(auto-fill, minmax(155px, 1fr));
+  overflow: hidden;
+  gap: 1px;
+}
+.calendar__month-inner {
+  border: 1px solid transparent;
+  background-color: #000;
+  /* background-color: #322222; */
+  padding: 7px;
+  position: relative;
+  font-size: 14px;
+}
+.calendar__month-inner._active {
+  border: 1px solid #8a9194;
+  z-index: 12;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 98%;
+  font-size: 6vw;
+  transition: all .2s;
+}
+
+.calendar__month-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+  padding-left: 2px;
+}
+.calendar__month-name._active {
+  color: red;
+}
+.calendar__list {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+.calendar__dey {
+  border-radius: 3px;
+  padding: 2px 1px;
+}
+.calendar__dey._active {
+  background-color: #37474f;
+}
+.calendar__month-inner._active .calendar__dey:active {
+  background-color: #37474f;
+}
+.calendar__dey._selected {
+  background-color: red;
+}
+.calendar__dey.color-non {
+  background-color: transparent;
+}
+
+
+.fon._active{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000b5;
+  /* background-color: #000; */
+  z-index: 11;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+}
+.fon._active{
+  visibility: visible;
+  opacity: 1;
+}
+
+@media(min-width: 600px){
+  .calendar__month-inner._active { 
+  width: 570px;
+  font-size: 35px;
+  }
+}
